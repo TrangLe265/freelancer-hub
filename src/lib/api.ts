@@ -4,33 +4,31 @@ export interface Client {
   id: number;
   name: string;
   email: string;
-  company?: string;
+  status: 'active' | 'inactive' |'archived';
   phone?: string;
-  archived?: boolean;
-  created_at?: string;
+  business_id?: string;
+  note?: string;
 }
 
 export interface Gig {
   id: number;
-  title: string;
-  description?: string;
   client_id: number;
-  status: 'active' | 'completed' | 'cancelled';
-  rate?: number;
-  start_date?: string;
-  end_date?: string;
-  created_at?: string;
+  title: string;
+  wage: number;
+  location?: string;
+  date: string;
+  description?: string;
+  status: 'pending' | 'completed' | 'cancelled';
 }
 
 export interface Invoice {
   id: number;
   gig_id: number;
   client_id: number;
-  amount: number;
-  status: 'draft' | 'sent' | 'paid' | 'overdue';
-  due_date?: string;
-  issued_date?: string;
-  created_at?: string;
+  issue_date: string;
+  due_date: string;
+  status: 'draft' |'created'| 'sent' | 'paid' | 'void';
+  toal_amount: number;
 }
 
 async function fetchApi<T>(endpoint: string, options?: RequestInit): Promise<T> {
