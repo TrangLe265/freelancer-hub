@@ -78,3 +78,6 @@ npm install
 # Start the development server
 npm run dev
 ```
+## 👤 Author
+
+Built by **Trang Thuy Le** and **Loveable**
